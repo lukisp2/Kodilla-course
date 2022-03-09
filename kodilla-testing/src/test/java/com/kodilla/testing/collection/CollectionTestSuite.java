@@ -9,6 +9,8 @@ import java.util.List;
 
 public class CollectionTestSuite {
 
+   private final OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+
     @BeforeEach
     public void before() {
         System.out.println("The system is to execute test.");
@@ -36,7 +38,6 @@ public class CollectionTestSuite {
 
         //Given
         List<Integer> list = new ArrayList<>();
-        OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
 
         //When
         List<Integer> testResultList;
@@ -46,7 +47,6 @@ public class CollectionTestSuite {
         //Then
         List<Integer> listExpected = new ArrayList<>();
         Assertions.assertEquals(listExpected, testResultList);
-
     }
 
     @DisplayName("Test is to check behavior of full list.")
@@ -58,7 +58,6 @@ public class CollectionTestSuite {
         for (int i = 1; i <= 10; i++) {
             list.add((Integer) i);
         }
-        OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
 
         //When
         List<Integer> testResultList;
@@ -66,19 +65,8 @@ public class CollectionTestSuite {
         System.out.println("Testing List: " + testResultList);
 
         //Then
-        List<Integer> listExpected = new ArrayList<>();
-        listExpected.add(2);
-        listExpected.add(4);
-        listExpected.add(6);
-        listExpected.add(8);
-        listExpected.add(10);
-
         Integer integers[] = new Integer[]{2, 4, 6, 8, 10};
         List<Integer> listExpectedArrays = Arrays.asList(integers);
-
-        // Assertions.assertEquals(listExpected, testResultList);
         Assertions.assertEquals(listExpectedArrays, testResultList);
-
-
     }
 }
